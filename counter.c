@@ -6,7 +6,7 @@
 ZEND_DECLARE_MODULE_GLOBALS(counter)
 
 
-/* START: function implementations Counter\clear() */
+/* START: function implementations */
 
 PHP_FUNCTION(counter_get)
 {
@@ -24,7 +24,7 @@ PHP_FUNCTION(counter_clear)
 	COUNTER_G(basic_counter_value) = 0;
 }
 
-/* END: function implementations Counter\clear() */
+/* END: function implementations */
 
 /* Create module function list */
 const zend_function_entry php_counter_functions[] = {
