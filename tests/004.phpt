@@ -4,9 +4,10 @@ Increment the counter, clear and output it.
 <?php if (!extension_loaded("counter")) print "skip"; ?>
 --FILE--
 <?php
-\Counter\bump();
-\Counter\clear();
-echo \Counter\get();
+$counter = \Counter\counter_create('sample');
+Counter\counter_bump_value($counter);
+Counter\counter_reset_value($counter);
+echo \Counter\counter_get_value($counter);
 ?>
 --EXPECT--
 0

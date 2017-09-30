@@ -3,6 +3,7 @@
 
 #define PHP_COUNTER_EXTNAME  "counter"
 #define PHP_COUNTER_EXTVER   "1.0"
+#define PHP_COUNTER_NS "Counter"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -10,16 +11,14 @@
 
 #include "php.h"
 
-/*
-  Define/register global module variables
-*/
+typedef struct {
+   zend_long value;
+} counter_resource;
+
 ZEND_BEGIN_MODULE_GLOBALS(counter)
-	long basic_counter_value;
+	HashTable counters;
 ZEND_END_MODULE_GLOBALS(counter)
 
-/*
-  Define a template to access the global module variables
-*/
 #define COUNTER_G(v) ZEND_MODULE_GLOBALS_ACCESSOR(counter, v)
 
 #ifdef ZTS
